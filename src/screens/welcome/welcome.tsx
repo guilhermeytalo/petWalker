@@ -10,21 +10,19 @@ import {
   View,
 } from 'react-native';
 
-// import Feather from 'react-native-vector-icons/Feather';
 import { useNavigation } from '@react-navigation/core';
 
-import dogImage from "../../assets/welcome-screen/welcome.jpg";
+import dogImage from '../../assets/welcome-screen/welcome.jpg';
 import colors from '../../styles/color';
 import fonts from '../../styles/fonts';
-
-// Feather.loadFont();
+import { Login } from '../login/login';
 
 export function Welcome() {
   const navigation = useNavigation();
 
   function handleStart() {
     console.log('caiu?');
-    // navigation.navigate('UserIdentification');
+    navigation.navigate('Login');
   }
 
   return (
@@ -60,7 +58,7 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: 'bold',
     textAlign: 'left',
-    color: colors.primary,
+    color: colors.white,
     marginTop: 38,
     marginLeft: 38,
     lineHeight: 34,

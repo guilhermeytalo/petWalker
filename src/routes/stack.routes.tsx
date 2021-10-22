@@ -2,7 +2,7 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import { Welcome } from '../screens/welcome/welcome';
-// import { UserIdentification } from '../pages/UserIdentification';
+import { Login } from '../screens/login/login';
 // import { Confirmation } from '../pages/Confirmation';
 // import { PlantSelect } from '../pages/PlantSelect';
 
@@ -18,7 +18,7 @@ const AppRoutes: React.FC = () => (
         }}
     >
         <stackRoutes.Screen name="Welcome" component={Welcome} />
-        {/* <stackRoutes.Screen name="UserIdentification" component={UserIdentification} /> */}
+        <stackRoutes.Screen name="Login" component={Login} />
         {/* <stackRoutes.Screen name="Confirmation" component={Confirmation} /> */}
         {/* <stackRoutes.Screen name="PlantSelect" component={PlantSelect} /> */}
     </stackRoutes.Navigator>
