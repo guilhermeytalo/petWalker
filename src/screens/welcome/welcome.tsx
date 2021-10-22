@@ -40,7 +40,7 @@ export function Welcome() {
             activeOpacity={0.7}
             onPress={handleStart}>
               <Text style={styles.buttonText}>
-                Let's Walk
+                Let's teste
               </Text>
           </TouchableOpacity>
         </ImageBackground>
@@ -51,12 +51,10 @@ export function Welcome() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1,    
   },
   wrapper: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
   },
   title: {
     fontSize: 32,
@@ -73,14 +71,15 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   button: {    
-    backgroundColor: colors.primary,
+    backgroundColor: colors.primary,    
     justifyContent: 'center',
     alignItems: 'center',
-    // alignContent: 'space-around',
-    // position: 'absolute',
     borderRadius: 16,    
     width: 200,
     height: 56,
+    alignSelf: 'center',
+    position: 'absolute',
+    bottom: 35
   },
   buttonText: {
     fontSize: 18,
