@@ -16,6 +16,8 @@ import  { Button }  from '../../components/button';
 
 import colors from '../../styles/color';
 import fonts from '../../styles/fonts';
+import color from '../../styles/color';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 export function Login(){
@@ -55,14 +57,14 @@ export function Login(){
 
                         <View style={styles.form}>
 
-                            <View style={styles.header}>
+                            {/* <View style={styles.header}>
                                 <Text style={styles.title}>
                                     Como podemos {'\n'}
                                     chamar você?
                                 </Text>
-                            </View>
+                            </View> */}
 
-                            <TextInput 
+                            {/* <TextInput 
                                 style={[
                                     styles.input,
                                     (isFocused || isFilled) && 
@@ -72,12 +74,39 @@ export function Login(){
                                 onBlur={handleInputBlur}
                                 onFocus={handleInputFocus}
                                 onChangeText={handleInputChange}
-                            />
+                            /> */}
+
+                            <View style={styles.mailLogin}>
+                                <TouchableOpacity 
+                                style={styles.mailLoginBtn} 
+                                onPress={handleSubmit}
+                                >
+                                    <Text style={styles.subtitle}>Login with e-mail</Text>
+                                </TouchableOpacity>
+                            </View>
+
+                            <View style={styles.facebookLogin}>
+                                <TouchableOpacity 
+                                style={styles.facebookLoginBtn} 
+                                onPress={handleSubmit}
+                                >
+                                    <Text style={styles.subtitle}>Login with Facebook</Text>
+                                </TouchableOpacity>
+                            </View>
+
                             <View style={styles.footer}>
-                                <Button 
-                                    title='Confirmar' 
-                                    onPress={handleSubmit} 
-                                />
+                                <Text style={styles.text}>Didn't have an account? 
+                                    <Text style={{fontWeight: 'bold', color: colors.primary}}> Sign Up</Text> 
+                                </Text>                                
+                            </View>
+
+                            <View style={styles.footer}>
+                                <Text style={styles.text}>
+                                    By continue you agree to our{'\n'}
+                                    <Text style={{fontWeight: 'bold', color: colors.primary}}>Terms </Text> 
+                                    {'&'}  
+                                    <Text style={{fontWeight: 'bold', color: colors.primary}}> Privacy Policy</Text>
+                                </Text>
                             </View>
                         </View>
                     </View>
@@ -96,7 +125,8 @@ const styles = StyleSheet.create({
     },
     content: {
         flex: 1,
-        width: '100%'
+        width: '100%',
+        backgroundColor: colors.secondary
     },
     form: {
         flex: 1,
@@ -127,6 +157,36 @@ const styles = StyleSheet.create({
         color: colors.primary,
         fontFamily: fonts.heading,
         marginTop: 20,
+    },
+    subtitle: {
+        color: colors.white
+    },
+    text: {
+        fontSize: 16,
+        textAlign: 'center'
+    },
+    mailLogin: {
+        width: '100%',   
+    },
+    mailLoginBtn: {
+        backgroundColor: colors.primary,
+        borderRadius: 30,
+        width: '100%',
+        height: 50,
+        justifyContent: 'center',
+        paddingLeft: 20
+    },
+    facebookLogin: {
+        width: '100%',
+        marginTop: 20,
+    },
+    facebookLoginBtn: {
+        backgroundColor: colors.faceBlue,        
+        borderRadius: 30,
+        width: '100%',
+        height: 50,
+        justifyContent: 'center',
+        paddingLeft: 20
     },
     footer: {
         width: '100%',
