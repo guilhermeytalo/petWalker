@@ -1,27 +1,33 @@
+// react import
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
 
-import { Welcome } from '../screens/welcome/welcome';
-// import { UserIdentification } from '../pages/UserIdentification';
-// import { Confirmation } from '../pages/Confirmation';
-// import { PlantSelect } from '../pages/PlantSelect';
 
-// import colors from '../styles/colors';
+// screens
+import Welcome from '../screens/welcome/welcome';
+import Login from '../screens/login/login';
+import EmailLogin from '../screens/emailLogin/emailLogin';
 
-const stackRoutes = createStackNavigator();
+const Stack = createNativeStackNavigator();    
+
+export type RootStackParamsList = {
+    Welcome: undefined
+    Login: undefined
+    EmailLogin: undefined
+    FacebookLogin: undefined
+}
 
 const AppRoutes: React.FC = () => (
-    
-    <stackRoutes.Navigator
+    <Stack.Navigator 
         screenOptions={{
-            headerShown: false,           
+            headerShown: false
         }}
     >
-        <stackRoutes.Screen name="Welcome" component={Welcome} />
-        {/* <stackRoutes.Screen name="UserIdentification" component={UserIdentification} /> */}
-        {/* <stackRoutes.Screen name="Confirmation" component={Confirmation} /> */}
-        {/* <stackRoutes.Screen name="PlantSelect" component={PlantSelect} /> */}
-    </stackRoutes.Navigator>
+        <Stack.Screen name="Welcome" component={Welcome} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="EmailLogin" component={EmailLogin} />
+    </Stack.Navigator>
 )
 
 export default AppRoutes;
