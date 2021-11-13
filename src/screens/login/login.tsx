@@ -9,6 +9,7 @@ import {
     Platform,
     Keyboard,
     TouchableWithoutFeedback,
+    TouchableOpacity
 } from 'react-native';
 
 // import  { Button }  from '../../components/button';
@@ -16,7 +17,6 @@ import {
 import colors from '../../styles/color';
 import fonts from '../../styles/fonts';
 import color from '../../styles/color';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 // import { EmailLogin } from './emailLogin';
 
@@ -35,16 +35,12 @@ export default function Login(){
     }
 
     function facebookLogin() {
-        navigation.navigate('FacebookLogin');
+        console.log('login with email 2');
+        // navigation.navigate('FacebookLogin');
     }
 
     return(
         <SafeAreaView style={styles.container}>
-            <KeyboardAvoidingView 
-                style={styles.container} 
-                behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-            >
-                <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                     <View style={styles.content}>
 
                         <View style={styles.form}>
@@ -82,8 +78,6 @@ export default function Login(){
                             </View>
                         </View>
                     </View>
-                </TouchableWithoutFeedback>
-            </KeyboardAvoidingView>
         </SafeAreaView>
     );
 }
