@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useNavigation } from '@react-navigation/core';
 import {
     SafeAreaView,
     StyleSheet,
@@ -12,38 +11,31 @@ import {
     TouchableWithoutFeedback,
 } from 'react-native';
 
-import  { Button }  from '../../components/button';
+// import  { Button }  from '../../components/button';
 
 import colors from '../../styles/color';
 import fonts from '../../styles/fonts';
 import color from '../../styles/color';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
+// import { EmailLogin } from './emailLogin';
 
-export function Login(){
-    const [isFocused, setIsFocused] = useState(false);
-    const [isFilled, setIsFilled] = useState(false);
-    const [name, setName] = useState<string>();
+import { useNavigation } from '@react-navigation/core';
+import { RootStackParamsList } from '../../routes/stack.routes'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 
-    const navigation = useNavigation();
+type loginSreenProp = NativeStackNavigationProp<RootStackParamsList, "Login">
 
+export default function Login(){
+    const navigation = useNavigation<loginSreenProp>();
 
-    function handleInputBlur() {
-        setIsFocused(false); 
+    function emailLogin(): void {
+        console.log('login with email')
+        navigation.navigate('EmailLogin');
     }
 
-    function handleInputFocus() {
-        setIsFocused(true);
-    }
-
-    function handleInputChange(value: string) {
-        setIsFilled(!!value);
-        setName(value);
-    }
-
-    function handleSubmit() {
-        console.log('caiu 1')
-    //   navigation.navigate('Confirmation');
+    function facebookLogin() {
+        navigation.navigate('FacebookLogin');
     }
 
     return(
@@ -56,30 +48,10 @@ export function Login(){
                     <View style={styles.content}>
 
                         <View style={styles.form}>
-
-                            {/* <View style={styles.header}>
-                                <Text style={styles.title}>
-                                    Como podemos {'\n'}
-                                    chamar você?
-                                </Text>
-                            </View> */}
-
-                            {/* <TextInput 
-                                style={[
-                                    styles.input,
-                                    (isFocused || isFilled) && 
-                                    {borderColor: colors.primary}
-                                ]} 
-                                placeholder='Digite um nome'
-                                onBlur={handleInputBlur}
-                                onFocus={handleInputFocus}
-                                onChangeText={handleInputChange}
-                            /> */}
-
                             <View style={styles.mailLogin}>
                                 <TouchableOpacity 
                                 style={styles.mailLoginBtn} 
-                                onPress={handleSubmit}
+                                onPress={emailLogin}
                                 >
                                     <Text style={styles.subtitle}>Login with e-mail</Text>
                                 </TouchableOpacity>
@@ -88,7 +60,7 @@ export function Login(){
                             <View style={styles.facebookLogin}>
                                 <TouchableOpacity 
                                 style={styles.facebookLoginBtn} 
-                                onPress={handleSubmit}
+                                onPress={facebookLogin}
                                 >
                                     <Text style={styles.subtitle}>Login with Facebook</Text>
                                 </TouchableOpacity>

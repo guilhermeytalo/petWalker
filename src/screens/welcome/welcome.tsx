@@ -10,18 +10,22 @@ import {
   View,
 } from 'react-native';
 
-import { useNavigation } from '@react-navigation/core';
-
 import dogImage from '../../assets/welcome-screen/welcome.jpg';
 import colors from '../../styles/color';
 import fonts from '../../styles/fonts';
-import { Login } from '../login/login';
 
-export function Welcome() {
-  const navigation = useNavigation();
+// params para rotas v6
+import { useNavigation } from '@react-navigation/native';
+import { RootStackParamsList } from '../../routes/stack.routes'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+// import { Login } from '../login/login';
 
-  function handleStart() {
-    console.log('caiu?');
+type welcomeSreenProp = NativeStackNavigationProp<RootStackParamsList, "Welcome">
+
+export default function Welcome() {  
+  const navigation = useNavigation<welcomeSreenProp>();
+
+  function handleStart() {        
     navigation.navigate('Login');
   }
 
